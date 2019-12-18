@@ -42,6 +42,10 @@ minikube start --vm-driver=hyperkit --image-repository=registry.cn-hangzhou.aliy
 
 
 
+如果你在第一次启动 Minikube 时遇到错误或被中断，后面重试仍然失败时，可以尝试运行 `minikube delete` 把集群删除，重新来过。
+
+
+
 Minikube 启动时会自动配置 kubectl，把它指向 Minikube 提供的 Kubernetes API 服务。可以用下面的命令确认：
 
 ```bash
@@ -81,6 +85,12 @@ eval $(minikube docker-env -u)
 ```
 
 在运行上面的命令后，再运行 `docker image ls` 时只能看到一些 Minikube 自带的镜像.
+
+
+
+
+
+
 
 
 
