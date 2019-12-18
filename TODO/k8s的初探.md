@@ -35,6 +35,7 @@ brew cask install minikube
 Minikube 默认的虚拟化引擎是 `VirtualBox`, 我们用`hyperkit` 进行替代
 
 ```bash
+rm -rf ~/.minikube
 minikube start --vm-driver=hyperkit --image-repository=registry.cn-hangzhou.aliyuncs.com/google_containers
 ```
 
@@ -42,7 +43,7 @@ minikube start --vm-driver=hyperkit --image-repository=registry.cn-hangzhou.aliy
 
 
 
-如果你在第一次启动 Minikube 时遇到错误或被中断，后面重试仍然失败时，可以尝试运行 `minikube delete` 把集群删除，重新来过。
+如果你在第一次启动 Minikube 时遇到错误或被中断，后面重试仍然失败时，可以尝试运行 `minikube delete` 把集群删除，重新来过。过程如果比较慢, 请耐心等待.
 
 
 
@@ -92,9 +93,26 @@ eval $(minikube docker-env -u)
 
 
 
+### 3. 遇到的问题
+
+##### 3.1 下载不下来
+
+```bash
+rm -rf ~/.minikube
+minikube start --vm-driver=hyperkit --image-repository=registry.cn-hangzhou.aliyuncs.com/google_containers
+```
 
 
-### 3. 参考资料
+
+##### 3.2 Get https://registry-1.docker.io/v2/: proxyconnect tcp: dial tcp 127.0.0.1:7890: connect: connection refused
+
+
+
+### 4. 参考资料
 
 + https://zhuanlan.zhihu.com/p/39937913
 + https://blog.csdn.net/qq_35254726/article/details/54233781
+
+
+
+### 
