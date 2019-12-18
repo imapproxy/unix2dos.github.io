@@ -106,7 +106,26 @@ minikube start --vm-driver=hyperkit --image-repository=registry.cn-hangzhou.aliy
 
 ##### 3.2 Get https://registry-1.docker.io/v2/: proxyconnect tcp: dial tcp 127.0.0.1:7890: connect: connection refused
 
+```bash
+rm -rf ~/.minikube
+minikube start --vm-driver=hyperkit --image-repository=registry.cn-hangzhou.aliyuncs.com/google_containers
+```
 
+
+
+##### 3.3 Get https://registry-1.docker.io/v2/: dial tcp: lookup registry-1.docker.io on 192.168.64.1:53: no such host
+
+Setting the DNS Server for the Docker Daemon via "Preferences > Daemon > Advanced" based upon advice given [here](https://github.com/moby/moby/issues/32270#issuecomment-290829987) by [@thaJeztah](https://github.com/thaJeztah) via putting in the following value worked for me (no reinstall required):
+
+```
+{ "dns" : [ "8.8.8.8", "8.8.4.4" ]}
+```
+
+
+
+##### 3.4 Get https://registry-1.docker.io/v2/: dial tcp: lookup registry-1.docker.io on 192.168.64.1:53: server misbehaving
+
+https://github.com/kubernetes/minikube/issues/3036
 
 ### 4. 参考资料
 
